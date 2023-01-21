@@ -14,4 +14,4 @@ No clue
 ### Using PyInstaler
 - You need to install **PyInstaller**. Use this command to do so : ```pip install -U pyinstaller```
 - Go at the same level of your main python file and use : ```pyinstaller -F your_program.py```
-- The executable will be in the **dist/** repertory named as ```your_program``
+- The executable will be in the **dist/** repertory named as ```your_program```
