@@ -1,4 +1,8 @@
 from tkinter import *
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+
 class App(Tk):
     def __init__(self):
         Tk.__init__(self)
@@ -24,3 +28,14 @@ class App(Tk):
 
     def create_variablelabel(self, text_variable_name, font):
         self.labels[text_variable_name] = Label(self, textvariable=self.texts[text_variable_name], font=font)
+
+    def create_canva(self):
+        self.canvas = FigureCanvasTkAgg(plt.gcf(), master=self)
+        # place canvas
+        self.canvas.get_tk_widget().pack(side=TOP, fill=BOTH, expand=True)
+
+    def create_animation(self, func, lines, columns, interval, blit):
+        plt.style.use('fivethirtyeight')
+        plt.gcf().subplots(lines, columns)
+
+        FuncAnimation(plt.gcf(), func=func, interval=interval, blit=blit)
