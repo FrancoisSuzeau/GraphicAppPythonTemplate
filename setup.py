@@ -16,7 +16,7 @@ executables = [
 ]
 
 packages = ["idna", "os", "packages"]
-includefiles = [os.path.join('packages', 'application.py'), os.path.join('packages', 'functions.py')] #include path of your personnal module if they are not located in the same directory of your main script
+includefiles = [os.path.join('packages', 'application.py'), os.path.join('packages', 'functions.py'), os.path.join('.', 'assets')] #include path of your personnal module if they are not located in the same directory of your main script
 binaries = []
 excludes = []
 options = {

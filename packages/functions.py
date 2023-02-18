@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 import pyspeedtest
 import psutil
+import os
+import sys
 
 def getSpeedTest():
     # Generate values
@@ -28,3 +30,14 @@ def getRAMStatistics():
 def getCPUStatistics(seconds=0):
     # Calling psutil.cpu_precent() for seconds
     return psutil.cpu_percent(seconds)
+
+#https://stackoverflow.com/questions/31836104/pyinstaller-and-onefile-how-to-include-an-image-in-the-exe-file
+def resource_path(relative_path):
+    """ Get absolute path to resource, works for dev and for PyInstaller """
+    try:
+        # PyInstaller creates a temp folder and stores path in _MEIPASS
+        base_path = sys._MEIPASS2
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
